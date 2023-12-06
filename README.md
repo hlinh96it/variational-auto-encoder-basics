@@ -1,18 +1,6 @@
-# Auto-encoder: From AE to Beta-VAE
-
-Status: In Progress 💨
-Projects: Auto-Encoder Overview (https://www.notion.so/Auto-Encoder-Overview-cfbf77928aa2428f8b8ff7e38de69b2d?pvs=21)
-Progress: 0.5
-Related Notes: Auto-Encoder Overview (https://www.notion.so/Auto-Encoder-Overview-889c8afa34d44e8ca7e6f8684633ccb0?pvs=21)
-Literature Review Database: Multi-stage few-shot micro-defect detection of patterned OLED panel using defect inpainting and multi-scale Siamese neural network (https://www.notion.so/Multi-stage-few-shot-micro-defect-detection-of-patterned-OLED-panel-using-defect-inpainting-and-mult-c5b78b68208d4f9b89fc7818164b7168?pvs=21)
-Areas: CodewithLinh.com (https://www.notion.so/CodewithLinh-com-6230506b08cb4841bcd8aa424b222748?pvs=21), Data Scientist 🙇🏻‍♂️ (https://www.notion.so/Data-Scientist-b86557d81c684b5792f73d07d2f68f05?pvs=21)
-Tasks: Bổ sung code cho mỗi phần (https://www.notion.so/B-sung-code-cho-m-i-ph-n-73e45b93a38e487f8d0d44202486b21a?pvs=21)
-
 **Auto-encoders** serve as versatile tools in **deep learning** due to their ability to learn efficient representations of data. Their primary motivation lies in **dimensionality reduction** and **feature learning**, allowing for the extraction of meaningful features from raw data. By encoding input data into a compressed representation and subsequently reconstructing it, auto-encoders aid in tasks like **denoising**, **anomaly detection**, and **generative modeling**. Their self-supervised nature, where they learn from unlabeled data, makes them valuable in scenarios where labeled data is scarce or costly. Moreover, their adaptability across various domains, from image and text data to more complex sequential data, underscores their significance in modern deep learning architectures.
 
 ## Auto-Encoder Fundamentals
-
----
 
 An auto-encoder comprises two primary components: the encoder, represented as  $f(\phi)$ , and the decoder, denoted as $g(\theta)$ . The encoder function  $f(\phi)$  compresses the input data  $x$  into a lower-dimensional latent space representation called the bottleneck, denoted as  $z$ . This encoding process aims to capture the most essential features of the input. Subsequently, the decoder function  $g(\theta)$  reconstructs the original input from this bottleneck representation. The auto-encoder's training involves minimizing a loss function that measures the discrepancy between the input and the reconstructed output.
 
@@ -35,8 +23,6 @@ The **encoder network** serves a purpose akin to dimensionality reduction method
 Moreover, the **autoencoder** is specifically designed to optimize the reconstruction of data from this compressed representation. It learns to reconstruct the original input from the encoded representation. This emphasis on accurate reconstruction encourages the encoder to create a meaningful and informative intermediate representation. This representation not only captures latent variables or underlying structures within the data but also facilitates a more effective and accurate process of decompression or decoding. In essence, a well-trained encoder within an auto-encoder framework results in an intermediate representation that not only efficiently captures important features but also greatly aids in the faithful reconstruction of the original data from this compressed form.
 
 ### **Denoising Autoencoder**
-
----
 
 In a **denoising autoencoder**, the primary objective is to reconstruct clean data from corrupted or noisy input. This approach aids in learning robust and meaningful representations by forcing the model to capture essential features while filtering out noise.
 
@@ -67,8 +53,6 @@ $$
 Here,  $x^{(i)}$  denotes the  $i$ th input sample,  $f(\phi)(x_{\text{corrupted}}^{(i)})$  represents the encoding of the corrupted input to the bottleneck  $z^{(i)}$ , and  $g(\theta)(z^{(i)})$  signifies the reconstruction of  $x^{(i)}$  from the bottleneck representation. The denoising autoencoder, by learning to reconstruct clean data from noisy inputs, encourages the model to capture robust and meaningful features while enhancing its ability to filter out unwanted noise in the data.
 
 ### Sparse Auto-Encoder
-
----
 
 Sparse auto-encoders aim to introduce **sparsity in the learned representations**, meaning that only a **few units in the network are activated at a time**. This sparsity constraint forces the model to learn more efficient and selective representations, focusing on the most important features in the data. The sparsity constraint encourages the autoencoder to use only a limited number of neurons in the encoding process, which can lead to better generalization, reduced overfitting, and improved interpretability of the learned features.
 
@@ -109,8 +93,6 @@ By incorporating the sparsity term in the loss function, the sparse autoencoder 
 
 ## **VAE: Variational Autoencoder**
 
----
-
 Variational Autoencoders (VAEs) address the limitations of traditional autoencoders by enabling the generation of new data samples. They aim to learn a latent space representation that not only captures meaningful features but also allows for the generation of new, realistic data points by sampling from the learned distribution. VAEs achieve this by imposing a specific structure on the latent space, making it follow a probabilistic distribution.
 
 In a VAE, the goal is to **learn a probability distribution** over the latent space, which is typically assumed to follow a Gaussian distribution. The model learns to **encode input data into a probability distribution**, and during the decoding process, it generates new samples by sampling from this distribution.
@@ -139,14 +121,9 @@ Where
 
 The first term in the loss function is the reconstruction loss, ensuring the fidelity of the generated output to the original input. The second term is the KL divergence, encouraging the distribution of latent variables to approximate the chosen prior distribution. This regularization term helps in shaping the latent space to be continuous and smooth, facilitating the generation of new data samples by sampling from this learned distribution.
 
-<aside>
-💡 VAEs enable both effective representation learning and generative capabilities, allowing for the creation of novel data points from the learned latent space distribution.
-
-</aside>
+> VAEs enable both effective representation learning and generative capabilities, allowing for the creation of novel data points from the learned latent space distribution.
 
 ### **VAE vs Generative Arversarial Networks (GAN)?**
-
----
 
 Imagine you are an artist who wants to draw a picture of a cat. The VAE (Variational Autoencoder) would help you draw a cat by giving you a set of rules to follow. It tells you what a cat looks like in general, and you try to draw a cat based on those rules. Sometimes, the cat you draw may not look exactly like a real cat, but it's close.
 
