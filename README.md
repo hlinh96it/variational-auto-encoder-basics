@@ -86,7 +86,9 @@ $$
 Here,  $\rho$  represents the desired sparsity level, and  $\hat{\rho}_j$  is the average activation of neuron  $j$  in the hidden layer over the training set. Let say, there are $s_l$ neurons in the $l$-th layer and the activation function of $j$-th neuron in this layer is $a_j^{(l)}(.)$ where $j=1,..s_l$, $\hat{\rho}_j^{(l)}$ can be calculated as:
 
 $$
-\begin{equation}\hat{\rho}_j^{(l)} = \frac{1}{n} \sum_{i=1}^n [a_j^{(l)}(\mathbf{x}^{(i)})] \approx \rho \end{equation}
+\begin{equation}
+\hat{\rho}_j^{(l)} = \frac{1}{n} \sum_{i=1}^n [a_j^{(l)}(\mathbf{x}^{(i)})] \approx \rho 
+\end{equation}
 $$
 
 By incorporating the sparsity term in the loss function, the sparse autoencoder encourages the network to learn sparse and informative representations, promoting more efficient and selective encoding of input data.
